@@ -1,11 +1,12 @@
 Summary:	A Wayland kiosk
 Name:		cage
 Version:	0.1.4
-Release:	1
+Release:	2
 License:	MIT
 Group:		Applications
 Source0:	https://github.com/Hjdskes/cage/releases/download/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	b5874157dbded445cfe674a54805bca9
+Patch0:		wlroots-0.15.patch
 URL:		https://www.hjdskes.nl/projects/cage/
 BuildRequires:	meson
 BuildRequires:	ninja
@@ -14,7 +15,7 @@ BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	scdoc >= 1.9.2
 BuildRequires:	wayland-devel
 BuildRequires:	wayland-protocols >= 1.14
-BuildRequires:	wlroots-devel >= 0.14.0
+BuildRequires:	wlroots-devel >= 0.15.0
 BuildRequires:	xorg-lib-libxkbcommon-devel
 Requires:	wlroots >= 0.14.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -29,6 +30,7 @@ prevents the user from interacting with anything but this application.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %meson build \
