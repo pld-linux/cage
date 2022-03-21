@@ -1,7 +1,7 @@
 Summary:	A Wayland kiosk
 Name:		cage
 Version:	0.1.4
-Release:	2
+Release:	3
 License:	MIT
 Group:		Applications
 Source0:	https://github.com/Hjdskes/cage/releases/download/v%{version}/%{name}-%{version}.tar.gz
@@ -18,6 +18,7 @@ BuildRequires:	wayland-protocols >= 1.14
 BuildRequires:	wlroots-devel >= 0.15.0
 BuildRequires:	xorg-lib-libxkbcommon-devel
 Requires:	wlroots >= 0.14.0
+Requires:	xorg-xserver-Xwayland
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
