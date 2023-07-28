@@ -1,13 +1,11 @@
-%define		gitref	5f4c43db04093edf8452efb3b04c3a3c720c78de
-
 Summary:	A Wayland kiosk
 Name:		cage
-Version:	0.1.4
-Release:	4
+Version:	0.1.5
+Release:	1
 License:	MIT
 Group:		Applications
-Source0:	https://github.com/Hjdskes/cage/archive/%{gitref}/%{name}-%{gitref}.tar.gz
-# Source0-md5:	75a49decbf2022e849b5eaa66c8bc763
+Source0:	https://github.com/cage-kiosk/cage/releases/download/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	616bde2178a3c88f3238d9d26446a259
 URL:		https://www.hjdskes.nl/projects/cage/
 BuildRequires:	meson >= 0.58.1
 BuildRequires:	ninja
@@ -32,7 +30,7 @@ kiosk compositor displays a single maximized application at a time and
 prevents the user from interacting with anything but this application.
 
 %prep
-%setup -q -n %{name}-%{gitref}
+%setup -q
 
 %build
 %meson build \
