@@ -1,0 +1,14 @@
+--- wlroots-0.12.0/util/log.c.orig	2020-11-08 15:01:44.000000000 +0100
++++ wlroots-0.12.0/util/log.c	2021-02-03 10:32:04.394433021 +0100
+@@ -47,7 +47,11 @@
+ 	clock_gettime(CLOCK_MONOTONIC, &ts);
+ 	timespec_sub(&ts, &ts, &start_time);
+ 
++#if defined(__x86_64__) && defined(__ILP32__)
++	fprintf(stderr, "%02d:%02d:%02d.%03lld ", (int)(ts.tv_sec / 60 / 60),
++#else
+ 	fprintf(stderr, "%02d:%02d:%02d.%03ld ", (int)(ts.tv_sec / 60 / 60),
++#endif
+ 		(int)(ts.tv_sec / 60 % 60), (int)(ts.tv_sec % 60),
+ 		ts.tv_nsec / 1000000);
+ 
