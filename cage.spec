@@ -84,6 +84,7 @@ prevents the user from interacting with anything but this application.
 %meson build \
 	-Dxwayland=true \
 %if %{without system_wlroots}
+	--force-fallback-for=wlroots \
 	-Dwlroots:default_library=static \
 	-Dwlroots:examples=false
 %endif
